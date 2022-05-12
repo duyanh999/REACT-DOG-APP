@@ -25,6 +25,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [success, setSuccess] = useState(true)
   const dispatch = useDispatch()
   let history = useNavigate();
   const [LoginUser, { data, isError, error, isSuccess }] =
@@ -40,7 +41,7 @@ const Login = () => {
       );
       
       // const arrayOfData = JSON.parse(localStorage.getItem('login')).token.success
-      
+      setSuccess(true)
       // setSuccess(data.success);
       // console.log(arrayOfData)
       setErrorMsg("");
@@ -52,12 +53,12 @@ const Login = () => {
       setErrorMsg(error.data.message);
     }
   }, [data, isError]);
-
+                                          
   const login = (e) => {
     e.preventDefault();
     LoginUser({ username, password });
     const loginUser = {
-      success: data.success
+      success: success
     }
     dispatch(update(loginUser))
     // axiosJWT

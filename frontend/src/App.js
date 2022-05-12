@@ -20,6 +20,8 @@ function App() {
   const [myCart,addToCart] = useState([{}]);
   const [total,setTotal] = useState(0);
   
+  const logins = useSelector((state) => state.login.success)
+  // const [success,setSuccess] = useState(logins)
   useEffect(() => {
     async function getData() {
       const res = await axios.get("http://localhost:8080/v1/dogs");
@@ -29,12 +31,11 @@ function App() {
     
     
   },[]);
-  const logins = useSelector((state) => state.login)
-  const [success,setSuccess] = useState(logins)
   
+ 
   return (
     
-    <CartContext.Provider value={{myCart,addToCart,total,setTotal,setSuccess}}>
+    <CartContext.Provider value={{myCart,addToCart,total,setTotal}}>
       <header className='name'> DUYANH PETSHOP </header>
       <Router>
         <NavBar/>
@@ -42,7 +43,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home/>}/>
             <Route path='/login' element = {<Login/>}/>
-            <Route element={<Privaterouter isLogged={success} />}>
+            <Route element={<Privaterouter isLogged={logins} />}>
             <Route path="/dogs" element = {<DogsPage allDogs={allDogs} />} />
             <Route path='/cart' element = {<Cart/>}/> 
             <Route path='/admin' element={<Admin/>}/> 

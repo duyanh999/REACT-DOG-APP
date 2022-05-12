@@ -3,7 +3,7 @@ import {createSlice} from '@reduxjs/toolkit';
 export const loginSlice = createSlice({
     name:'login',
     initialState:{
-        success:'false'
+        success:false
     },
     reducers:{
         update:(state,action) => {

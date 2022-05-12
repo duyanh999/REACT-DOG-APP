@@ -3,23 +3,21 @@ import axios from "axios";
 import { useState } from "react";
 import jwtDecode from "jwt-decode";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {useContext} from 'react'
-import {CartContext} from '../../Contexts/CartContexts'
+import { CartContext } from "../../Contexts/CartContexts";
+import {update} from '../loginSlice'
+
 let axiosJWT = axios.create();
 const Home = () => {
-  const { setSuccess } = useContext(CartContext);
+  const dispatch = useDispatch()
   const [timeout, setTimeout] = useState("");
+  // const { setSuccess } = useContext(CartContext);
   const logout = () => {
     window.localStorage.clear()
-    setSuccess(false)
+    // setSuccess(false)
     axiosJWT.get("http://localhost:8080/v1/dogs");
-    try {
-      const arrayOfData = JSON.parse(localStorage.getItem("login")).token
-        .accessToken;
-      setTimeout(arrayOfData);
-    } catch (error) {
-      console.log(error);
-    }
+    
 
     axiosJWT.interceptors.request.use(async (config) => {
       let date = new Date();
