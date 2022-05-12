@@ -15,6 +15,7 @@ const Home = () => {
   // const { setSuccess } = useContext(CartContext);
   const logout = () => {
     window.localStorage.clear()
+    window.location.href = "/login"
     // setSuccess(false)
     axiosJWT.get("http://localhost:8080/v1/dogs");
     

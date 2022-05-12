@@ -2,26 +2,49 @@
   "todos": [
     {
       "userId": 1,
-      "title": "dasdsa",
-      "completed": true,
+      "title": "delete",
+      "completed": false,
       "id": 1
+    },
+    {
+      "userId": 1,
+      "title": "update",
+      "completed": true,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "title": "read",
+      "completed": false,
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "title": "create",
+      "completed": true,
+      "id": 4
     }
   ],
   "role": [
     {
       "userId": 1,
-      "title": "ds",
+      "title": "tien",
       "id": 1
     },
     {
       "userId": 1,
-      "title": "dasdas",
+      "title": "tu",
       "id": 2
     },
     {
       "userId": 1,
-      "title": "d",
+      "title": "thang",
       "id": 3
+    },
+    {
+      "userId": 1,
+      "title": "duyanh",
+      "id": 4
     }
   ]
 }
