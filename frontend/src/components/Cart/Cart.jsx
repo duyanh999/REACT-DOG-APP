@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../Contexts/CartContexts";
+import { Link } from "react-router-dom";
 import "./Cart.css"
 const Cart = () => {
   const {myCart,total,setTotal,addToCart} = useContext(CartContext);
@@ -23,6 +24,7 @@ const Cart = () => {
             <div className="cart-total">Tổng Tiền: {total}$</div>
           </div>
           <button className="cart-checkout" onClick={handleCheckOut} > Thanh Toan </button>
+          <button className="dogs-btn-disabled"><Link to ="/dogs"> quay lại </Link></button>
         </section>
         </>
       );

@@ -5,9 +5,9 @@
   padding: 0;
   margin: 0;
 }
-body {
-  background-color: #fae1dd;
-  min-height: 100vh;
+.page-container {
+  
+ background-color: #fae1dd;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -18,13 +18,16 @@ body {
 }
 .name{
   color: #8a6862;
+  background-color: #fae1dd;
   font-family: 'Inter', sans-serif;
 }
-
+.full{
+  background-color: #fae1dd;
+}
 .page-container{
   display:flex;
   justify-content:center;
-  height: 100vh;
+  height: 155vh
 }
 .ten{
   display: flex;

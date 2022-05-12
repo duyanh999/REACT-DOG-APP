@@ -1,6 +1,6 @@
 import DogsCard from "./DogsCard";
 import "./Dogs.css";
-
+import { Link } from "react-router-dom";
 const DogsPage = (props) => {
     const {allDogs} = props;
     return ( 
@@ -20,6 +20,9 @@ const DogsPage = (props) => {
                          </div>
                 );
             })}
+            <div className="botton-cart">
+                <button className="dogs-btn-disabled"><Link to ="/cart"> Giỏ hàng </Link></button>
+            </div>
         </section>
         </>
      );

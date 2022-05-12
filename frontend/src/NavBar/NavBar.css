@@ -2,6 +2,8 @@
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
+    background-color: #fae1dd;;
+    
 }
 .navbar > * {
     margin-left: 2rem;
