@@ -10,7 +10,6 @@ import { useLoginUserMutation } from "./components/authApi";
 import { useDispatch } from "react-redux";
 import { update } from "./components/loginSlice";
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -19,14 +18,14 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-// let axiosJWT = axios.create()
+
 const Login = () => {
   const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  
-  const dispatch = useDispatch()
+
+  const dispatch = useDispatch();
   let history = useNavigate();
   const [LoginUser, { data, isError, error, isSuccess }] =
     useLoginUserMutation();
@@ -39,17 +38,12 @@ const Login = () => {
           token: data,
         })
       );
-      
-      
-      // const arrayOfData = JSON.parse(localStorage.getItem('login')).token.success
-      
+
       const loginUser = {
-        success: data.success
-      }
-      dispatch(update(loginUser))
-      
-      // setSuccess(data.success);
-      // console.log(arrayOfData)
+        success: data.success,
+      };
+      dispatch(update(loginUser));
+
       setErrorMsg("");
       setUsername("");
       setPassword("");
@@ -59,38 +53,11 @@ const Login = () => {
       setErrorMsg(error.data.message);
     }
   }, [data, isError]);
-                                          
+
   const login = async (e) => {
     e.preventDefault();
     await LoginUser({ username, password });
-   
-    // axiosJWT
-    // .get("http://localhost:8080/v1/dogs")
-    // try{
-    //   const arrayOfData = JSON.parse(localStorage.getItem('login')).token.success;
-    //   setSuccess(arrayOfData)
-    //   console.log(arrayOfData)
-    // }catch(error) {
-    //   console.log(error)
-    // };
   };
-  // axios
-  //   .post("http://localhost:5000/api/v1/auth/login", {
-  //     username:email,
-  //     password,
-  //   })
-  //   .then((response) => {
-  //     console.log("response", response);
-  //     localStorage.setItem(
-  //       "login",
-  //       JSON.stringify({
-  //         userLogin: true,
-  //         token: response.data,
-  //       })
-  //     )
-
-  //   .catch((error) => setError(error.response.data.message));
-
   return (
     <div style={{ marginTop: "100px" }}>
       <h2>Login</h2>
