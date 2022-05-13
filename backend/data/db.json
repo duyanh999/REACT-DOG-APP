@@ -3,19 +3,13 @@
     {
       "userId": 1,
       "title": "delete",
-      "completed": false,
+      "completed": true,
       "id": 1
     },
     {
       "userId": 1,
-      "title": "update",
-      "completed": true,
-      "id": 2
-    },
-    {
-      "userId": 1,
       "title": "read",
-      "completed": false,
+      "completed": true,
       "id": 3
     },
     {
@@ -35,16 +29,6 @@
       "userId": 1,
       "title": "tu",
       "id": 2
-    },
-    {
-      "userId": 1,
-      "title": "thang",
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "title": "duyanh",
-      "id": 4
     }
   ]
 }

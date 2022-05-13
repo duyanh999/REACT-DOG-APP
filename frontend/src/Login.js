@@ -25,7 +25,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [success, setSuccess] = useState(true)
+  
   const dispatch = useDispatch()
   let history = useNavigate();
   const [LoginUser, { data, isError, error, isSuccess }] =
@@ -40,8 +40,14 @@ const Login = () => {
         })
       );
       
+      
       // const arrayOfData = JSON.parse(localStorage.getItem('login')).token.success
-      setSuccess(true)
+      
+      const loginUser = {
+        success: data.success
+      }
+      dispatch(update(loginUser))
+      
       // setSuccess(data.success);
       // console.log(arrayOfData)
       setErrorMsg("");
@@ -54,13 +60,10 @@ const Login = () => {
     }
   }, [data, isError]);
                                           
-  const login = (e) => {
+  const login = async (e) => {
     e.preventDefault();
-    LoginUser({ username, password });
-    const loginUser = {
-      success: success
-    }
-    dispatch(update(loginUser))
+    await LoginUser({ username, password });
+   
     // axiosJWT
     // .get("http://localhost:8080/v1/dogs")
     // try{
